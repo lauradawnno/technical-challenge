@@ -12,6 +12,6 @@ This command will start the REST service (usually on port 8080) on an embedded T
 
 ## Usage
 
-To test the APIs you can use the bash scripts provided or any other REST client. 
+To test the APIs you can use the bash scripts provided in the scripts folder or any other REST client. 
 
 NOTE: The scripts use localhost and port 8080 to run, if your server started on a different port (you can check it in the logs when the application starts) or you are calling from a different machine, change the scripts accordingly.
