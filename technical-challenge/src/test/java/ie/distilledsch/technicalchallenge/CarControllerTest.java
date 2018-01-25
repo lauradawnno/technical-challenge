@@ -26,23 +26,24 @@ import ie.distilledsch.technicalchallenge.dao.CarRepository;
 import ie.distilledsch.technicalchallenge.model.Car;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(value = CarController.class, secure = false)
+@WebMvcTest(value = CarController.class, secure = false)  // States that a Spring Controller will be tested
 public class CarControllerTest {
 	
 	@Autowired
-	private MockMvc mockMvc;
+	private MockMvc mockMvc;  // Mocks the RESTful service
 
 	@MockBean
-	private CarRepository repo;
+	private CarRepository repo; // Mocks the access to the database
 	
 	Car stubCar = new Car(new Long(1), "Nissan", "Micra", new Integer(2004), "TEST123", new Date(1485907200000L), new Double(300));
 
 	@Test
 	public void test_retrieveAllCars() throws Exception {
+		// Mocks the call to the db, returning an array containing the stubCar object
 		Mockito.when(repo.findAll()).thenReturn(Arrays.asList(stubCar));
 		
 		RequestBuilder reqBuilder = MockMvcRequestBuilders.get("/car/").accept(MediaType.APPLICATION_JSON);
-		
+		// Mocks the actual call to the API
 		MvcResult result = mockMvc.perform(reqBuilder).andReturn();
 		
 		String expected = "[{id: 1,make:Nissan, model: Micra,year: 2004,last_updated: 1485907200000,price: 300}]";
@@ -72,7 +73,7 @@ public class CarControllerTest {
 		MvcResult result = mockMvc.perform(reqBuilder).andReturn();
 		
 		
-        MockHttpServletResponse response = result.getResponse();
+                MockHttpServletResponse response = result.getResponse();
 		
         
 		assertEquals(HttpStatus.INTERNAL_SERVER_ERROR.value(), response.getStatus());
