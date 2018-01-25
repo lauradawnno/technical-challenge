@@ -11,6 +11,7 @@
 	<name>technical-challenge</name>
 	<description>Technical Challenge for Graduate Data Engineer Role</description>
 
+	<!-- Adding this will make the project inherit all Spring necessary dependencies -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
