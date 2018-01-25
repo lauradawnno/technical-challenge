@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
  * Standard Java Bean
  *
  */
-@Entity
+@Entity  // This will make the project create the table at startup
 public class Car {
 
 	// auto-incremented id
